@@ -1,0 +1,65 @@
+import React, { useState } from 'react';
+import usePortfolioStore from '../store/portfolioStore';
+
+const AddStock = () => {
+  const addStock = usePortfolioStore((state) => state.addStock);
+
+  const [formData, setFormData] = useState({
+    stockName: '',
+    symbol: '',
+    quantity: '',
+    buyPrice: '',
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+import React, { useState } from 'react';
+import usePortfolioStore from '../store/portfolioStore';
+
+const AddStock = () => {
+  const addStock = usePortfolioStore((state) => state.addStock);
+
+  const [formData, setFormData] = useState({
+    stockName: '',
+    symbol: '',
+    quantity: '',
+    buyPrice: '',
+  });
+
+
+
+      <input
+        type="text"
+        placeholder="Symbol"
+        value={formData.symbol}
+        onChange={(e) =>
+          setFormData({ ...formData, symbol: e.target.value })
+        }
+      />
+  <input
+        type="number"
+        placeholder="Quantity"
+        value={formData.quantity}
+        onChange={(e) =>
+          setFormData({ ...formData, quantity: e.target.value })
+        }
+      />
+
+      <input
+        type="number"
+        placeholder="Buy Price"
+        value={formData.buyPrice}
+        onChange={(e) =>
+          setFormData({ ...formData, buyPrice: e.target.value })
+        }
+   />
+
+      <button type="submit">Add Stock</button>
+    </form>
+  );
+};
+
+export default AddStock;
+  const handleSubmit = (e) => {
+    e.preventDefault();
