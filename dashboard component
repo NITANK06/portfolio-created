@@ -1,0 +1,20 @@
+import React from 'react';
+import usePortfolioStore from '../store/portfolioStore';
+
+const Dashboard = () => {
+  const { stocks } = usePortfolioStore();
+
+  const totalInvestment = stocks.reduce(
+    (acc, stock) => acc + stock.buyPrice * stock.quantity,
+    0
+  );
+
+  return (
+    <div>
+      <h1>Portfolio Dashboard</h1>
+      <h2>Total Investment: ₹{totalInvestment}</h2>
+    </div>
+  );
+};
+
+export default Dashboard;
