@@ -1,0 +1,39 @@
+
+
+import React from 'react';
+import usePortfolioStore from '../store/portfolioStore';
+
+const PortfolioTable = () => {
+  const { stocks, removeStock } = usePortfolioStore();
+
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Stock</th>
+          <th>Symbol</th>
+          <th>Quantity</th>
+          <th>Buy Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {stocks.map((stock, index) => (
+          <tr key={index}>
+            <td>{stock.stockName}</td>
+            <td>{stock.symbol}</td>
+            <td>{stock.quantity}</td>
+            <td>₹{stock.buyPrice}</td>
+
+            <td>
+              <button onClick={() => removeStock(stock.symbol)}>
+                Delete
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
