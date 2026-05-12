@@ -1,0 +1,35 @@
+import React from 'react';
+import {
+  PieChart,
+  Pie,
+  Tooltip,
+  Cell,
+} from 'recharts';
+
+const data = [
+  { name: 'Apple', value: 400 },
+  { name: 'Tesla', value: 300 },
+  { name: 'Google', value: 300 },
+];
+
+const Analytics = () => {
+  return (
+    <PieChart width={400} height={400}>
+      <Pie
+        data={data}
+        dataKey="value"
+        outerRadius={150}
+         fill="#8884d8"
+        label
+      >
+        {data.map((entry, index) => (
+          <Cell key={`cell-${index}`} />
+        ))}
+      </Pie>
+
+      <Tooltip />
+    </PieChart>
+  );
+};
+
+export default Analytics;
